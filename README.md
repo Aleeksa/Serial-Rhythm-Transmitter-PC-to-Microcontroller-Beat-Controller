@@ -1,31 +1,34 @@
 # Serial Rhythm Transmitter (C & Windows API) 🎶🔌
 
-Ovaj projekat omogućava slanje definisanih muzičkih ritmova sa računara na mikrokontroler (poput Arduina) putem serijske (COM) veze. Sistem je dizajniran da interpretira tekstualne zapise ritma i konvertuje ih u instrukcije koje hardver može da izvrši.
+This project enables sending defined musical rhythms from a PC to a microcontroller (such as an Arduino) via a serial (COM) connection. The system is designed to interpret textual rhythm notations and convert them into instructions that the hardware can execute.
 
-## 📝 Kako sistem funkcioniše
-1. **Ulazni podaci:** Program čita fajl `ritam.txt` u kojem je definisan tempo i sekvenca nota.
-2. **Validacija:** C program proverava da li su uneti karakteri validni (`F`, `H`, `Q`, `E`, `S`) i da li je tempo ispravno postavljen.
-3. **Komunikacija:** Koristeći Windows `CreateFileA` i `WriteFile` funkcije, program uspostavlja vezu sa specifičnim COM portom i šalje podatke bajt po bajt.
-
-
-
-## 📂 Sadržaj repozitorijuma
-- `send_rhythm.c`: Glavni izvorni kod za Windows konzolnu aplikaciju.
-- `ritam.txt`: Primer konfiguracionog fajla (Tempo + Ritam).
-- `send_rhythm.exe`: Kompajlirana verzija programa spremna za korišćenje.
-
-## 🎹 Format ritma
-U fajlu `ritam.txt` možete koristiti sledeće oznake:
-- **F (Full):** Cela nota
-- **H (Half):** Polovina
-- **Q (Quarter):** Četvrtina
-- **E (Eighth):** Osmina
-- **S (Sixteenth):** Šesnaestina
+## 📝 How the System Works
+1. **Input Data:** The program reads a `ritam.txt` file containing the defined tempo and note sequence.
+2. **Validation:** The C program verifies if the entered characters are valid (`F`, `H`, `Q`, `E`, `S`) and ensures the tempo is correctly set.
+3. **Communication:** Using Windows `CreateFileA` and `WriteFile` functions, the program establishes a connection with a specific COM port and transmits data byte-by-byte.
 
 
 
-## ⚙️ Upotreba
-Program se pokreće iz komandne linije (CMD) uz navođenje COM porta:
+## 📂 Repository Content
+- `send_rhythm.c`: Main source code for the Windows console application.
+- `ritam.txt`: Sample configuration file (Tempo + Rhythm).
+- `send_rhythm.exe`: Compiled version of the program, ready for use.
+
+## 🎹 Rhythm Format
+You can use the following notations in the `ritam.txt` file:
+- **F (Full):** Whole note
+- **H (Half):** Half note
+- **Q (Quarter):** Quarter note
+- **E (Eighth):** Eighth note
+- **S (Sixteenth):** Sixteenth note
+
+
+
+[Image of musical note durations and symbols]
+
+
+## ⚙️ Usage
+The program is executed from the Command Prompt (CMD) by specifying the COM port:
 
 ```bash
 send_rhythm.exe COM3
